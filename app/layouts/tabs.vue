@@ -1,21 +1,27 @@
 <template>
-  <div>
-    <UNavigationMenu :items="items" />
-    <slot></slot>
-  </div>
+  <UTabs :items="items">
+    <template #expenses>
+      <ExpenseList />
+    </template>
+    <template #balances>
+      <BalanceList />
+    </template>
+  </UTabs>
 </template>
 
 <script setup lang="ts">
-const items = ref([
+import ExpenseList from "@/components/organisms/ExpenseList.vue";
+
+const items = [
   {
     label: "Expenses",
-    icon: "i-lucide-book-open",
-    to: "/expenses",
+    icon: "icon-park-outline:expenses",
+    slot: "expenses",
   },
   {
-    label: "Balance",
-    icon: "i-lucide-box",
-    to: "/balances",
+    label: "Balances",
+    icon: "fa7-solid:scale-unbalanced",
+    slot: "balances",
   },
-]);
+];
 </script>

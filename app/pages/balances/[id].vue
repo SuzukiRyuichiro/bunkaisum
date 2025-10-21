@@ -1,8 +1,9 @@
 <script setup lang="ts">
 definePageMeta({
-  layout: "tabs",
+  layout: "default",
 });
 </script>
+
 <template>
   <div>
     <h1>Balance</h1>
