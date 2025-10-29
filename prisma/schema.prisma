@@ -16,11 +16,21 @@ datasource db {
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
+  name      String?
+  Expense   Expense[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @default(now()) @updatedAt
 }
 
-// model Expense {
-
-// }
+model Expense {
+  id          Int      @id @default(autoincrement())
+  title       String
+  totalAmount Int
+  payerId     Int
+  payer       User     @relation(fields: [payerId], references: [id])
+  paidAt      DateTime
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now()) @updatedAt
+}
