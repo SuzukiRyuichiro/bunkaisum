@@ -9,6 +9,10 @@
 </template>
 
 <script setup lang="ts">
+const route = useRoute();
+
+const expense = await useFetch(`/api/expenses/${route.params.id}`);
+
 definePageMeta({
   layout: "default",
 });

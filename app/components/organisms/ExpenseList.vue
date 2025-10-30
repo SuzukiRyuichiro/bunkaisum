@@ -1,31 +1,18 @@
 <template>
-  <Expense v-for="expense in expenses" :key="expense.id" :expense="expense" />
+  <div v-if="expenses">
+    <MoleculesExpense
+      v-for="expense in expenses"
+      :key="expense.id"
+      :expense="expense"
+    />
+  </div>
+  <div v-else>Loading...</div>
 </template>
 
 <script setup lang="ts">
-import Expense from "@/components/molecules/Expense.vue";
+import type { ExpenseWithPayer } from "~~/server/api/expenses/index.get";
 
-const expenses = [
-  {
-    id: 1,
-    title: "Groceries",
-    amount: 50.0,
-    date: "2024-06-01",
-    paidBy: "Scooter",
-  },
-  {
-    id: 2,
-    title: "Utilities",
-    amount: 75.5,
-    date: "2024-06-03",
-    paidBy: "Scooter",
-  },
-  {
-    id: 3,
-    title: "Transport",
-    amount: 20.0,
-    date: "2024-06-05",
-    paidBy: "Scooter",
-  },
-];
+defineProps<{
+  expenses?: ExpenseWithPayer[];
+}>();
 </script>

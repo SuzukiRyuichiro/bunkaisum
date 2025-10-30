@@ -7,21 +7,20 @@
       <div class="flex-grow">
         <h2 class="text-lg font-semibold">{{ expense.title }}</h2>
         <p class="text-muted">
-          Paid by <span class="font-semibold">{{ expense.paidBy }}</span>
+          Paid by <span class="font-semibold">{{ expense.payer.name }}</span>
         </p>
       </div>
       <div class="text-right">
-        <p class="font-bold">${{ expense.amount.toFixed(2) }}</p>
+        <p class="font-bold">¥{{ expense.totalAmount }}</p>
       </div>
     </div>
   </nuxt-link>
 </template>
 
 <script setup lang="ts">
-defineProps({
-  expense: {
-    type: Object,
-    required: true,
-  },
-});
+import type { ExpenseWithPayer } from "~~/server/api/expenses/index.get";
+
+defineProps<{
+  expense: ExpenseWithPayer;
+}>();
 </script>

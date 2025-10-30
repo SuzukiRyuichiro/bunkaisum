@@ -1,17 +1,15 @@
 <template>
   <UTabs :items="items">
     <template #expenses>
-      <ExpenseList />
+      <OrganismsExpenseList />
     </template>
     <template #balances>
-      <BalanceList />
+      <OrganismsBalanceList />
     </template>
   </UTabs>
 </template>
 
 <script setup lang="ts">
-import ExpenseList from "@/components/organisms/ExpenseList.vue";
-
 const items = [
   {
     label: "Expenses",

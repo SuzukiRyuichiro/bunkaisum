@@ -5,10 +5,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Project Overview
 
 This is a Nuxt 4 application with TypeScript. The project uses:
+
 - **Nuxt UI** (@nuxt/ui v4.0.1) for UI components
 - **Tailwind CSS v4** with Vite plugin for styling
 - **Bun** as the package manager
 - **ESLint** with Nuxt integration for linting
+- **Prisma** to provide an API with the database
 
 ## Development Commands
 
@@ -39,6 +41,7 @@ bun run generate
   - `layouts/` - Layout components
   - `components/` - Vue components (auto-imported)
   - `assets/css/` - Global styles
+  - `prisma` - Migrations, schema and the sqlite database file for development
 
 ### Component Patterns
 
@@ -52,3 +55,12 @@ bun run generate
 - **eslint.config.mjs**: Extends Nuxt's generated ESLint config
 - **tailwind.config.js**: Tailwind v4 configuration
 - **tsconfig.json**: References generated Nuxt TypeScript configs in `.nuxt/` directory
+
+## Code style
+
+- Use ES modules (import/export) syntax, not CommonJS (require)
+- Destructure imports when possible (eg. import { foo } from 'bar')
+
+## Workflow
+
+- Be sure to typecheck when you’re done making a series of code changes
