@@ -13,17 +13,11 @@ export default defineNuxtConfig({
   typescript: {
     typeCheck: true,
   },
-  alias: {
-    components: fileURLToPath(new URL("./app/components", import.meta.url)),
-    "@": fileURLToPath(new URL("./app/", import.meta.url)),
-    "~": fileURLToPath(new URL("./app/", import.meta.url)),
-    "@@": fileURLToPath(new URL("./", import.meta.url)),
-    "~~": fileURLToPath(new URL("./", import.meta.url)),
-  },
   nitro: {
-    alias: {
-      "@@": fileURLToPath(new URL("./", import.meta.url)),
-      "~~": fileURLToPath(new URL("./", import.meta.url)),
+    preset: "cloudflare_module",
+    cloudflare: {
+      deployConfig: true,
+      nodeCompat: true,
     },
   },
 });
