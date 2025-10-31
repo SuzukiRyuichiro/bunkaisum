@@ -13,6 +13,7 @@ describe("Expense", () => {
           createdAt: new Date(),
           updatedAt: new Date(),
           payerId: 1,
+          paidAt: new Date(),
           payer: {
             id: 1,
             name: "Test User",
