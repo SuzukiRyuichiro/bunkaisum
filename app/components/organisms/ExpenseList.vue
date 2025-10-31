@@ -10,9 +10,11 @@
 </template>
 
 <script setup lang="ts">
-import type { ExpenseWithPayer } from "~~/server/api/expenses/index.get";
+import type { InternalApi } from "nitropack";
+
+type ApiResponse = InternalApi["/api/expenses"]["get"];
 
 defineProps<{
-  expenses?: ExpenseWithPayer[];
+  expenses?: ApiResponse;
 }>();
 </script>

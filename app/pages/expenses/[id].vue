@@ -5,13 +5,15 @@
     <h1>Expense Detail</h1>
     <!-- Your expense detail -->
     <p>Expense ID: {{ $route.params.id }}</p>
+    <p>👩: {{ expense?.payer.name }}</p>
+    <p>💰:{{ expense?.totalAmount }}</p>
   </div>
 </template>
 
 <script setup lang="ts">
 const route = useRoute();
 
-const expense = await useFetch(`/api/expenses/${route.params.id}`);
+const { data: expense } = await useFetch(`/api/expenses/${route.params.id}`);
 
 definePageMeta({
   layout: "default",
