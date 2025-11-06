@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { $fetch, setup } from "@nuxt/test-utils";
-import { prisma } from "@@/server/utils/prisma";
+import { prisma } from "../../../../server/utils/prisma";
 
 await setup({});
 

@@ -3,7 +3,7 @@ import tailwindcss from "@tailwindcss/vite";
 import { fileURLToPath } from "node:url";
 
 export default defineNuxtConfig({
-  compatibilityDate: "2025-07-15",
+  compatibilityDate: "2024-09-19",
   devtools: { enabled: true },
   modules: ["@nuxt/eslint", "@nuxt/ui", "@nuxt/test-utils/module"],
   css: ["~/assets/css/main.css"],
@@ -18,6 +18,9 @@ export default defineNuxtConfig({
     cloudflare: {
       deployConfig: true,
       nodeCompat: true,
+    },
+    experimental: {
+      wasm: true,
     },
   },
 });
