@@ -1,4 +1,5 @@
 export default defineEventHandler(async (event) => {
-  const users = await prisma.user.findMany();
+  const db = usePrisma(event);
+  const users = await db.user.findMany();
   return users;
 });
