@@ -1,6 +1,5 @@
 export default defineEventHandler(async (event) => {
-  const db = usePrisma(event);
-  const expenses = await db.expense.findMany({
+  const expenses = await prisma.expense.findMany({
     include: {
       payer: true,
     },

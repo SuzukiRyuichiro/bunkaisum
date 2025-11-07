@@ -17,8 +17,7 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-  const db = usePrisma(event);
-  const expense = await db.expense.findUnique({
+  const expense = await prisma.expense.findUnique({
     where: { id },
     include: {
       payer: true,
