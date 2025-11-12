@@ -1,8 +1,20 @@
 name = "bunkaisum"
-compatibility_date = "2024-09-19"
+compatibility_date = "2025-08-05"
 
 # D1 Database binding
 [[d1_databases]]
 binding = "DB"
 database_name = "bunkaisum-db"
 database_id = "e609c3a3-f322-4fa3-a1df-038889a9a261"
+
+[observability]
+[observability.logs]
+enabled = true
+head_sampling_rate = 1
+persist = true
+invocation_logs = true
+
+[observability.traces]
+enabled = true
+head_sampling_rate = 1
+persist = true
